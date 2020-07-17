@@ -72,19 +72,21 @@
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
     <ClCompile>
       <BrowseInformation>true</BrowseInformation>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <AdditionalDependencies>icuucd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>..\..\$(IcuBinOutputDir)\icuin67d.dll</OutputFile>
       <ProgramDatabaseFile>.\..\..\$(IcuLibOutputDir)\icuind.pdb</ProgramDatabaseFile>
       <ImportLibrary>..\..\$(IcuLibOutputDir)\icuind.lib</ImportLibrary>
+      <IgnoreSpecificDefaultLibraries>libucrtd.lib;libucrt.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalOptions>/DEFAULTLIB:ucrtd.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <!-- Options that are common to all 'Release' project configurations -->
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
     <ClCompile>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
     </ClCompile>
     <Link>
@@ -92,6 +94,8 @@
       <OutputFile>..\..\$(IcuBinOutputDir)\icuin67.dll</OutputFile>
       <ProgramDatabaseFile>.\..\..\$(IcuLibOutputDir)\icuin.pdb</ProgramDatabaseFile>
       <ImportLibrary>..\..\$(IcuLibOutputDir)\icuin.lib</ImportLibrary>
+      <IgnoreSpecificDefaultLibraries>libucrtd.lib;libucrt.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalOptions>/DEFAULTLIB:ucrt.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
